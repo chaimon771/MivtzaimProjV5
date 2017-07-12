@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MivtzaimProjV5</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="first_name">שם פרטי</string>
+    <string name="last_name">משפחה</string>
+    <string name="phone">טלפון:</string>
+    <string name="address"> כתובת מגורים, רחוב, עיר</string>
+    <string name="profile_user_textview">הגדרת פרופיל משתמש</string>
+    <string name="profile_address">חפש כתובת: (רחוב, עיר)</string>
+    <string name="title_activity_profle">ProfleActivity</string>
+
+
+</resources>

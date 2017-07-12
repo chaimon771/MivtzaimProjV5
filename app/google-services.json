@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "456143906304",
+    "firebase_url": "https://mivtzaimprojv5.firebaseio.com",
+    "project_id": "mivtzaimprojv5",
+    "storage_bucket": "mivtzaimprojv5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456143906304:android:966122a005388f4e",
+        "android_client_info": {
+          "package_name": "example.haim.mivtzaimprojv5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456143906304-uma9q3oeeiqn62l6gpsbse5gu5aqfjb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "example.haim.mivtzaimprojv5",
+            "certificate_hash": "6f0bc57ccae5c8f1e0d07d7b160028b44ce72bc1"
+          }
+        },
+        {
+          "client_id": "456143906304-23f5vc61422c8a1r5t0r29mak47kblgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCApZ3OznfjVM5URTOdfDidCEsc3ss4ZTg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456143906304-23f5vc61422c8a1r5t0r29mak47kblgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
