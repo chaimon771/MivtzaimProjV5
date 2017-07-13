@@ -50,15 +50,15 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    private String getEmail(){
+    private String getEmail() {
         return etEmail.getText().toString();
     }
 
-    private String getPassword(){
+    private String getPassword() {
         return etPassword.getText().toString();
     }
 
-    private boolean isEmailValid(){
+    private boolean isEmailValid() {
         String email = getEmail();
         boolean valid = email.length() > 6 && email.contains("@");
         // regular expression pattern.
@@ -70,54 +70,74 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
-    private boolean isPasswordValid(){
+    private boolean isPasswordValid() {
         boolean valid = getPassword().length() > 5;
 
-        if (!valid)etEmail.setError("Password must be at least 6 characters");
+        if (!valid) etEmail.setError("Password must be at least 6 characters");
 
         return valid;
     }
 
 
-    @OnClick({R.id.btnLogin, R.id.btnRegister})
+    @OnClick({R.id.btnRegister})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btnLogin:
-                break;
-            case R.id.btnRegister:
-                //Client Side Validation:
-                if (!isEmailValid() | !isPasswordValid()) return;
-                showProgress(true);
-                String email = getEmail();
-                String password = getPassword();
+        //Client Side Validation:
+        if (!isEmailValid() | !isPasswordValid()) return;
+        showProgress(true);
+        String email = getEmail();
+        String password = getPassword();
 
-                //Internet Permission
-                mAuth.createUserWithEmailAndPassword(email, password).
-                        addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                showProgress(true);
+        //Internet Permission
+        mAuth.createUserWithEmailAndPassword(email, password).
+                addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        showProgress(true);
 
-                                Intent intent = new Intent(LoginActivity.this, MessagesFragmentActivity.class);
-                                startActivity(intent);
+                        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                        startActivity(intent);
+                    }
+                }).
+                addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        showProgress(false);
+                        Snackbar.make(btnLogin, e.getMessage(), Snackbar.LENGTH_INDEFINITE).show();
+                    }
+                });
+    }
 
 
-                            }
-                        }).
-                        addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                showProgress(false);
-                                Snackbar.make(btnLogin,e.getMessage(), Snackbar.LENGTH_INDEFINITE).show();
-                            }
-                        });
-                break;
-        }
+    @OnClick(R.id.btnLogin)
+    public void onBtnLoginClicked() {
+        //client side validation
+        if (!isEmailValid() | !isPasswordValid()) return;
+
+        showProgress(true);
+        String email = getEmail();
+        String password = getPassword();
+        //INTERNET PERMISSION
+        mAuth.signInWithEmailAndPassword(email, password).
+                addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        showProgress(false);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                }).
+                addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        showProgress(false);
+                        Snackbar.make(btnLogin, e.getMessage(), Snackbar.LENGTH_INDEFINITE).show();
+                    }
+                });
     }
 
     ProgressDialog dialog = null;
     public void showProgress(boolean show) {
-        if (dialog == null){
+        if (dialog == null) {
             dialog = new ProgressDialog(this);
             //title
             dialog.setTitle("Connecting to server");
@@ -132,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
             dialog.dismiss();
         }
     }
+
 
 
 }

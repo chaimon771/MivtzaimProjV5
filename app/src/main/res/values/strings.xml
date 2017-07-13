@@ -14,5 +14,9 @@
     <string name="profile_address">חפש כתובת: (רחוב, עיר)</string>
     <string name="title_activity_profle">ProfleActivity</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 
 </resources>
