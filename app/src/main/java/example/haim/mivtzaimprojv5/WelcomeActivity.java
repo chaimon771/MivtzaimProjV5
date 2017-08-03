@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 public class WelcomeActivity extends AppCompatActivity {
 
 
+
     RelativeLayout introMessage;
     LinearLayout appContent;
 
@@ -28,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void onClickGotIt(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

@@ -6,6 +6,7 @@ package example.haim.mivtzaimprojv5.moduls;
 
 public class Profile  {
     //Properties
+    private String email;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -17,9 +18,11 @@ public class Profile  {
     //Empty Constructor
     public Profile() {
     }
+
     //Full Constructor:
-    public Profile(String firstName, String lastName, String phoneNumber,
+    public Profile(String email, String firstName, String lastName, String phoneNumber,
                    String address, String weekDay, String hour, boolean profileApplied) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -29,8 +32,13 @@ public class Profile  {
         this.profileApplied = profileApplied;
     }
 
-
     //Getters n Setters:
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -78,6 +86,7 @@ public class Profile  {
     @Override
     public String toString() {
         return "Profile{" +
+                ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

@@ -31,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
     CharSequence myPlace;
     FirebaseDatabase database;
     DatabaseReference ref;
+    private FirebaseUser user;
+
     @BindView(R.id.etFirstName)
     EditText etFirstName;
     @BindView(R.id.etLastName)
@@ -84,11 +86,13 @@ public class ProfileActivity extends AppCompatActivity {
     @OnClick(R.id.btnSaveProfile)
     public void onSaveProfileClicked() {
         //Get Current user
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         if (user.getEmail() == null) return;
 
         //gets the Profile Inputes from this fragment
+
+        String email = user.getEmail();
         String firstName = etFirstName.getText().toString();
         String lastName = etLastName.getText().toString();
         String phoneNumber = etPhone.getText().toString();
@@ -97,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
         String hour = hourSpiner.getSelectedItem().toString();
         String minute = minuteSpiner.getSelectedItem().toString();
 
-        Profile profile = new Profile(firstName, lastName, phoneNumber, address, weekDay, hour, true);
+        Profile profile = new Profile(email, firstName, lastName, phoneNumber, address, weekDay, hour, true);
         //Save the inputes to the list:
         //1) ref to the DB
         FirebaseDatabase.getInstance().getReference("profile")
@@ -105,7 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
                 .push()
                 .setValue(profile);
 
-        Intent intent = new Intent(ProfileActivity.this, WelcomeActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
 
 

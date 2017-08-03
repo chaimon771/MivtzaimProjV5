@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:textDirection="rtl">
 
     <RelativeLayout
         android:id="@+id/welcome_message_layout"
@@ -19,9 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:text="Welcome to ViralAndroid"
+            android:text="ברוכים הבאים לאפליקציית המבצעים הראשונה מסוגה"
             android:textColor="#ddd"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,7 +30,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/welcome_title"
-            android:text="Here you will learn to develop profession android application with our tutorials, examples, tips and tricks, ux/ui design etc. These all tutorial and examples are available at free of cost. \n\nEither you are beginner or expert android developer we provide best tutorial and examples to you."
+            android:text="האפליקציה הראשונה מסוגה שנותנת לך את כל הכלים והיכולות לנהל את פעילות המבצעים שלך בכף ידך,
+תוכל להזמין חברים להצטרף אליך לדוכן על ידי שיתוף המיקום הקבוע שלך למבצעים
+
+עוד פיצ'רים ייחודיים כגון, שליחת דבר תורה למקורב, שליחת דוח שבועי לרבי, סיכום הפעילות ועוד דברים נוספים"
             android:textColor="#ddd"
             android:textSize="18sp" />
 
@@ -43,7 +47,7 @@
             android:onClick="dismisWelcomeMessageBox"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:text="Got It"
+            android:text="צא למבצעים"
             android:textColor="#fff" />
     </RelativeLayout>
 
@@ -53,6 +57,7 @@
         android:layout_height="fill_parent"
         android:background="#9c3125"
         android:orientation="vertical"
+        android:textAlignment="center"
         android:padding="20dp"
         android:visibility="invisible">
 
@@ -64,21 +69,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome Message For Android Application with Source Code. Welcome Message For Android Application with Source Code"
+            android:text="על מנת שתוכל להשתמש באפליקציה, בפעם הראשונה נדרשת הרשמה בסיסית שתאפשר לך למצוא עוד אנשים שיוכלו להגדיל את הפעילות"
             android:textColor="#fff"
             android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="ViralAndroid.com"
-            android:textSize="30sp" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="mivtzaim.progect@gmail.com"-->
+            <!--android:textSize="18sp" />-->
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Got it!"
+            android:layout_height="wrap_content"
+            android:text="הירשם"
             android:textColor="#fff"
             android:background="#adb3ad"
             android:onClick="onClickGotIt"

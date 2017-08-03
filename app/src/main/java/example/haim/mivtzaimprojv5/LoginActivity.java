@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     BootstrapButton btnRegister;
 
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private Object profileApplied;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,9 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+
         mAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     private String getEmail() {
@@ -78,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
-
     @OnClick({R.id.btnRegister})
     public void onViewClicked(View view) {
         //Client Side Validation:
@@ -96,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                         startActivity(intent);
+
                     }
                 }).
                 addOnFailureListener(new OnFailureListener() {
@@ -107,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-
     @OnClick(R.id.btnLogin)
     public void onBtnLoginClicked() {
         //client side validation
@@ -117,13 +122,16 @@ public class LoginActivity extends AppCompatActivity {
         String email = getEmail();
         String password = getPassword();
         //INTERNET PERMISSION
-        mAuth.signInWithEmailAndPassword(email, password).
+        Task<AuthResult> authResultTask = mAuth.signInWithEmailAndPassword(email, password).
                 addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        showProgress(false);
+                        showProgress(true);
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
+
+
                     }
                 }).
                 addOnFailureListener(new OnFailureListener() {
@@ -136,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     ProgressDialog dialog = null;
+
     public void showProgress(boolean show) {
         if (dialog == null) {
             dialog = new ProgressDialog(this);
@@ -152,7 +161,6 @@ public class LoginActivity extends AppCompatActivity {
             dialog.dismiss();
         }
     }
-
 
 
 }

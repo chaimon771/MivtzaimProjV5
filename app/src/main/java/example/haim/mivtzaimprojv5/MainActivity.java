@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
 //        boolean profileApplied = profile.isProfileApplied();
 
         if (user == null){
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
         }
 //        else if(profileApplied == false){
