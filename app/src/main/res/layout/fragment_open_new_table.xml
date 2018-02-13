@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp"
+    tools:context="example.haim.mivtzaimproject.fragments.OpenNewTableFragment">
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="הזן כתובת לדוכן..."
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintRight_toRightOf="@+id/textView7"
+        app:layout_constraintLeft_toLeftOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvLocationFound"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#e4dddd"
+        android:gravity="center"
+        android:text="פה תופיע הכתובת לאחר איתור המיקום לדוכן"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toLeftOf="@+id/btnFindLocation"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindLocation"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="או הזן כתובת למיקום הדוכן"
+        android:textSize="30sp"
+        app:layout_constraintRight_toRightOf="@+id/btnFindLocation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnFindLocation"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.517" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הזן פרטי הדוכן למבצעים"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintHorizontal_bias="0.488" />
+
+    <Button
+        android:id="@+id/btnFindLocation"
+        android:layout_width="88dp"
+        android:layout_height="75dp"
+        android:background="@drawable/round_button"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="אתר מיקום"
+        android:textColor="#fff"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAddFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="@+id/etFriendName"
+        android:layout_marginTop="8dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/rvFriends"
+        android:onClick="saveClicked"
+        />
+
+    <EditText
+        android:id="@+id/etFriendName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="שם החבר..."
+        app:layout_constraintBottom_toBottomOf="@+id/fabSave"
+        app:layout_constraintLeft_toRightOf="@+id/fabSave"
+        app:layout_constraintRight_toLeftOf="@+id/fabAddFriend"
+        app:layout_constraintTop_toTopOf="@+id/fabSave"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="0dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvFriends"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etFriendName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAddress"
+        app:layout_constraintVertical_bias="1.0"/>
+
+</android.support.constraint.ConstraintLayout>

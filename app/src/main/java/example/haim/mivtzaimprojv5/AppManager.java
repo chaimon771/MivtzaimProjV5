@@ -18,4 +18,6 @@ public class AppManager extends Application {
         //Load the bootstrap (Font-Awesome) icons.
         TypefaceProvider.registerDefaultIconSets();
     }
+
+
 }

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="example.haim.mivtzaimprojv5">
+    
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,9 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDAsy2XQ2dhtlXQk6umoDpE1StdBPEujIY" />
+            android:value="@string/google_maps_key"/>
+
+        <!--<service-->
+            <!--android:name=".FetchAddressIntentService"-->
+            <!--android:exported="false"/>-->
 
         <activity
             android:name=".MainActivity"
@@ -28,7 +36,8 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity"/>
+
     </application>
 
 </manifest>

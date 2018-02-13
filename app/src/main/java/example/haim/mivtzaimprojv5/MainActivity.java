@@ -10,48 +10,81 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import example.haim.mivtzaimprojv5.fragments.OpenNewTableFragment;
+import example.haim.mivtzaimprojv5.fragments.StartActFragment;
+import example.haim.mivtzaimprojv5.fragments.StartTableFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    FirebaseAuth mAuth;
-    FirebaseDatabase mDatabase;
+    private FirebaseUser user;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
 
-//        Profile profile = new Profile();
-//        boolean profileApplied = profile.isProfileApplied();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user == null){
+        if (user == null) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
         }
-//        else if(profileApplied == false){
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.container, new ProfileFragment())
-//                    .commit();
-//        }
-//          else{
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.container, new WelcomeFragment())
-//                    .commit();
-//        }
+
+
+
+        int childrenCount = 0;
+        if (childrenCount == 0) {
+            progressBar.setVisibility(View.GONE);
+
+            getSupportFragmentManager().
+                beginTransaction().
+                replace(R.id.container, new StartTableFragment()).
+                commit();
+    }
+
+//        DatabaseReference friendsRef = FirebaseDatabase.getInstance().getReference("FriendsList").child(user);
+//        friendsRef.keepSynced(true);
+//
+//        friendsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                long childrenCount = dataSnapshot.getChildrenCount();
+//
+//                progressBar.setVisibility(View.GONE);
+//
+//                if (childrenCount == 0) {
+//                    getSupportFragmentManager().
+//                            beginTransaction().
+//                            replace(R.id.container, new StartTableFragment()).
+//                            commit();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -63,6 +96,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
 
 
 
@@ -108,17 +142,27 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+//            Toast.makeText(this, "התחל פעילות", Toast.LENGTH_SHORT).show();
+
+            getSupportFragmentManager().
+                    beginTransaction().
+                    replace(R.id.container, new StartActFragment()).
+                    commit();
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage_table) {
+            getSupportFragmentManager().
+                    beginTransaction().
+                    replace(R.id.container, new OpenNewTableFragment()).
+                    commit();
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_profile) {
+            Intent intent = new Intent(this, ProfileActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class User {
     private String uid;
     private String email;
+    private Object friendImage;
 
     public User() {
     }
@@ -32,5 +33,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Object getFriendImage() {
+        return friendImage;
     }
 }

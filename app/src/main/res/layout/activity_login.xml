@@ -69,7 +69,7 @@
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:bootstrapText="Login {fa_user}"
+        app:bootstrapText="Login {fa-sign-in}"
         app:roundedCorners="true"
         app:bootstrapBrand="warning"
         app:bootstrapSize="lg"

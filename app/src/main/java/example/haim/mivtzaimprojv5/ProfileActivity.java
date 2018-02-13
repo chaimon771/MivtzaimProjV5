@@ -79,7 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
         minuteSpinner();
         hourSpinner();
 
-
     }
 
 
@@ -90,7 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
         assert user != null;
         if (user.getEmail() == null) return;
 
-        //gets the Profile Inputes from this fragment
+        //gets        the Profile Inputes from this fragment
 
         String email = user.getEmail();
         String firstName = etFirstName.getText().toString();
@@ -104,11 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         Profile profile = new Profile(email, firstName, lastName, phoneNumber, address, weekDay, hour, true);
         //Save the inputes to the list:
         //1) ref to the DB
-        FirebaseDatabase.getInstance().getReference("profile")
-                .child(user.getUid())
-                .push()
-                .setValue(profile);
-
+        ref.setValue(profile);
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
 
