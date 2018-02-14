@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 //hello changes at git...
 
-//haim's test for github
-
+//delete
     private FirebaseUser user;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
