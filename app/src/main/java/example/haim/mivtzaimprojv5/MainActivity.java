@@ -26,6 +26,7 @@ import example.haim.mivtzaimprojv5.fragments.StartTableFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+//haim's test for github
 
     private FirebaseUser user;
     @BindView(R.id.progressBar)
