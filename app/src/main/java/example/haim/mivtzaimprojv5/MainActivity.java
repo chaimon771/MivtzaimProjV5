@@ -2,6 +2,7 @@ package example.haim.mivtzaimprojv5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,15 +20,18 @@ import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import example.haim.mivtzaimprojv5.fragments.MainFragment;
 import example.haim.mivtzaimprojv5.fragments.OpenNewTableFragment;
 import example.haim.mivtzaimprojv5.fragments.StartActFragment;
-import example.haim.mivtzaimprojv5.fragments.StartTableFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-//hello changes at git...
 
 //delete
+
+//Israel's hello changes at git...
+
+
     private FirebaseUser user;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
@@ -57,7 +61,7 @@ public class MainActivity extends AppCompatActivity
 
             getSupportFragmentManager().
                 beginTransaction().
-                replace(R.id.container, new StartTableFragment()).
+                replace(R.id.container, new MainFragment()).
                 commit();
     }
 
@@ -138,7 +142,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
