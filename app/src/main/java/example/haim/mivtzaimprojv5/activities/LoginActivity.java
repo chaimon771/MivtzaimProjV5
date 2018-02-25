@@ -1,4 +1,4 @@
-package example.haim.mivtzaimprojv5;
+package example.haim.mivtzaimprojv5.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import example.haim.mivtzaimprojv5.MainActivity;
+import example.haim.mivtzaimprojv5.R;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package example.haim.mivtzaimprojv5;
+package example.haim.mivtzaimprojv5.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import example.haim.mivtzaimprojv5.MainActivity;
+import example.haim.mivtzaimprojv5.R;
 import example.haim.mivtzaimprojv5.moduls.Profile;
 
 public class ProfileActivity extends AppCompatActivity {

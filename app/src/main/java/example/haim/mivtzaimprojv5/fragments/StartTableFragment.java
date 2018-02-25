@@ -1,6 +1,7 @@
 package example.haim.mivtzaimprojv5.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import example.haim.mivtzaimprojv5.R;
+import example.haim.mivtzaimprojv5.activities.OpenNewTableActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +48,11 @@ public class StartTableFragment extends Fragment {
 
     @OnClick(R.id.ivUserProfile)
     public void onPlusClicked() {
-        getFragmentManager().
-                beginTransaction().
-                replace(R.id.container, new OpenNewTableFragment()).
-                commit();
+//        getFragmentManager().
+//                beginTransaction().
+//                replace(R.id.container, OpenNewTableActivity.class).
+//                commit();
+        Intent intent = new Intent(getContext(), OpenNewTableActivity.class);
+        startActivity(intent);
     }
 }

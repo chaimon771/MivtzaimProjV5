@@ -1,4 +1,4 @@
-package example.haim.mivtzaimprojv5;
+package example.haim.mivtzaimprojv5.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
+
+import example.haim.mivtzaimprojv5.R;
 
 public class StopwatchActivity extends AppCompatActivity {
 

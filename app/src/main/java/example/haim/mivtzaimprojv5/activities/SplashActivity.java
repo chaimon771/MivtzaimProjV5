@@ -1,8 +1,11 @@
-package example.haim.mivtzaimprojv5;
+package example.haim.mivtzaimprojv5.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import example.haim.mivtzaimprojv5.MainActivity;
+import example.haim.mivtzaimprojv5.R;
 
 public class SplashActivity extends AppCompatActivity {
 

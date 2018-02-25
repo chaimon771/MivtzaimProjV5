@@ -17,7 +17,6 @@ public class Friend implements Parcelable {
         this.friendName = friendName;
     }
 
-
     public String getFriendName() {
         return friendName;
     }

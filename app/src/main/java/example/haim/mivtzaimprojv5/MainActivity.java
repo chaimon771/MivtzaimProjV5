@@ -20,8 +20,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import example.haim.mivtzaimprojv5.activities.LoginActivity;
+import example.haim.mivtzaimprojv5.activities.OpenNewTableActivity;
+import example.haim.mivtzaimprojv5.activities.ProfileActivity;
+import example.haim.mivtzaimprojv5.activities.WelcomeActivity;
 import example.haim.mivtzaimprojv5.fragments.MainFragment;
-import example.haim.mivtzaimprojv5.fragments.OpenNewTableFragment;
 import example.haim.mivtzaimprojv5.fragments.StartActFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -158,16 +161,16 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage_table) {
-            getSupportFragmentManager().
-                    beginTransaction().
-                    replace(R.id.container, new OpenNewTableFragment()).
-                    commit();
-
-        } else if (id == R.id.nav_share) {
+        }
+        else if (id == R.id.nav_manage_table){
+            Intent intent = new Intent(this, OpenNewTableActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_profile) {
             Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
